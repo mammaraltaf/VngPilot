@@ -82,6 +82,7 @@ class CreateCompanyDetailsTable extends Migration
             $table->text("user_ratings_total")->nullable();
             $table->text("user_ratings_total_1")->nullable();
             $table->text('category')->nullable();
+            $table->text("kvk_search_text")->nullable();
             $table->timestamps();
         });
     }

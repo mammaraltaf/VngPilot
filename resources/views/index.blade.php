@@ -1,14 +1,3 @@
-<!-- <!DOCTYPE html>
-Author: Keenthemes
-Product Name: Metronic - Bootstrap 5 HTML, VueJS, React, Angular & Laravel Admin Dashboard Theme
-Purchase: https://1.envato.market/EA4JP
-Website: http://www.keenthemes.com
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
--->
 <html lang="en">
 <!--begin::Head-->
 <head>
@@ -306,7 +295,7 @@ $("#globalSearch").on("keyup", function() {
                 var one = row.find("td:nth-child(20)").text();
                 var two = row.find("td:nth-child(21)").text();
                 var three = row.find("td:nth-child(22)").text();
-                var four = row.find("td:nth-child(23)").text();
+                var four = row.find("td:nth-child(12)").text();
                 var five = row.find("td:nth-child(24)").text();
                 var six = row.find("td:nth-child(25)").text();
                 var seven = row.find("td:nth-child(26)").text();
@@ -738,12 +727,12 @@ $("#globalSearch").on("keyup", function() {
                         <input type="text" class="form-control" id="globalSearch" name="globalSearch" value="" placeholder="Global Search" />
                     </div>
                     <div class="d-flex align-items-center me-2 me-lg-4">
-                        <a href="index.html" class="btn btn-primary me-5">Company Indicator</a>
+                        <a href="{{route('company.getAllCompaniesData')}}" class="btn btn-primary me-5">Company Indicator</a>
 
                         <!--end::Theme mode docs-->
                     </div>
                     <div class="d-flex align-items-center me-2 me-lg-4">
-                        <a href="irregular.html" class="btn btn-primary me-5">Irregularities on the map</a>
+                        <a href="{{route('company.irregularitiesOnTheMap')}}" class="btn btn-primary me-5">Irregularities on the map</a>
 
                         <!--end::Theme mode docs-->
                     </div>
@@ -804,7 +793,7 @@ $("#globalSearch").on("keyup", function() {
                                         <option value="">Choose an option:</option>
                                         <option value="car_dealer">car_dealer</option>
                                         <option value="car_repair">car_repair</option>
-                                        <!-- <option value="car_rental">car_rental</option> -->
+                                        <option value="car_rental">car_rental</option>
                                     </select>
                                     <!--end::Select-->
                                     <!--begin::Input group-->
@@ -951,14 +940,14 @@ $("#globalSearch").on("keyup", function() {
                                         <tbody class="fs-6">
                                           @foreach($companies as $company)
                                              <tr>
-                                                 <td class="text-center ">{{$company->place_api_company_name}}</td>
-                                                 <td class="text-center ">{{$company->kvk_tradename}}</td>
-                                                 <td class="text-center ">{{$company->kvk_chamber_of_commerce}}</td>
-                                                 <td class="text-center ">{{$company->kvk_establishment_no}}</td>
-                                                 <td class="text-center ">{{$company->poitive_reviews}}</td>
-                                                 <td class="text-center ">{{$company->negative_reviews}}</td>
+                                                 <td class="text-center ">{{$company->kvk_search_text!= 'Null' ? $company->kvk_search_text : '-'}}</td>
+                                                 <td class="text-center ">{{$company->kvk_tradename != 'Null' ? $company->kvk_tradename : '-'}}</td>
+                                                 <td class="text-center ">{{$company->kvk_chamber_of_commerce != 'Null' ? $company->kvk_chamber_of_commerce : '-'}}</td>
+                                                 <td class="text-center ">{{$company->kvk_establishment_no != 'Null' ? $company->kvk_establishment_no : '-'}}</td>
+                                                 <td class="text-center ">{{$company->poitive_reviews != 'Null' ? $company->poitive_reviews : '-'}}</td>
+                                                 <td class="text-center ">{{$company->negative_reviews != 'Null' ? $company->negative_reviews : '-'}}</td>
                                                  <td class="text-center"><span class="badge badge-light-danger fw-bold me-1" id="bovagBtn" data-id="{{$company->id}}" data-toggle="modal" data-target="#bovagModal"><i class="fa fa-eye" style="color:black;"></i></span></td>
-                                                 <td class="text-center ">{{$company->duplicate_location}}</td>
+                                                 <td class="text-center ">{{$company->duplicate_location != 'Null' ? $company->duplicate_location : '-'}}</td>
                                                  <td class="text-center">
                                                      <button type="button" id="but" class="gfgselect btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModal">Map</button></td>
                                                  <td style="display:none;"class="text-center">{{$company->lat}}</td>

@@ -26,7 +26,19 @@ Route::get('/company-category/{company_category?}',[CompanyController::class,'co
 Route::get('/global-search/{value?}',[CompanyController::class,'globalSearch'])->name('company.globalSearch');
 
 
+Route::get('/irregularities-on-the-map',[CompanyController::class,'irregularitiesOnTheMap'])->name('company.irregularitiesOnTheMap');
+
+
 Route::get('license', function () {
     return view('license');
+});
+
+Route::get('/routeclear', function () {
+    Artisan::call('route:clear');
+    Artisan::call('route:cache');
+    Artisan::call('view:clear');
+    Artisan::call('view:cache');
+    Artisan::call('config:cache');
+    return 'Application route cleared!';
 });
 

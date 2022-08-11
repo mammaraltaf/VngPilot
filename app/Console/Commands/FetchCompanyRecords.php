@@ -119,6 +119,7 @@ class FetchCompanyRecords extends Command
                     'photos_width' => $allDataFormatted[$i]['photos.width'] ?? '',
                     'place_api_address' => $allDataFormatted[$i]['place_api_address'] ?? '',
                     'place_api_company_name' => $allDataFormatted[$i]['place_api_company_name'] ?? '',
+                    'kvk_search_text' => $allDataFormatted[$i]['kvk_search_text'] ?? '',
                     'place_api_full_address' => $allDataFormatted[$i]['place_api_full_address'] ?? '',
                     'place_api_phone_number' => $allDataFormatted[$i]['place_api_phone_number'] ?? '',
                     'place_id' => $allDataFormatted[$i]['place_id'] ?? '',
